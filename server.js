@@ -1,7 +1,7 @@
 var express = require('express');
 var cors = require('cors'),
 app = express(),
-port = process.env.PORT || 4000,
+port = process.env.PORT || 88,
 mongoose = require('mongoose'),
 Animal = require('./api/models/animalModel'), //created model loading here
 bodyParser = require('body-parser');
@@ -20,7 +20,7 @@ var corsOptions = {
     }
   }
   
-  app.get('/products/:id', cors(corsOptions), function (req, res, next) {
+  app.get('/animals/:id', cors(corsOptions), function (req, res, next) {
     res.json({msg: 'This is CORS-enabled for a whitelisted domain.'})
   })
   
