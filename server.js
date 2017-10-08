@@ -1,16 +1,17 @@
 var express = require('express');
-var cors = require('cors'),
+//var cors = require('cors'),
 app = express(),
 port = process.env.PORT || 88,
 mongoose = require('mongoose'),
 Animal = require('./api/models/animalModel'), //created model loading here
 bodyParser = require('body-parser');
 
-var whitelist = ['http://zoobeacon.dev', 'http://zoobcn.co']
+//var whitelist = ['http://zoobeacon.dev', 'http://zoobcn.co', 'http://localhost:88']
 
-app.options('*', cors()) // include before other routes
+app.disable("etag")   
+//app.options('*', cors()) // include before other routes
 
-var corsOptions = {
+/* var corsOptions = {
     origin: function (origin, callback) {
       if (whitelist.indexOf(origin) !== -1) {
         callback(null, true)
@@ -23,7 +24,7 @@ var corsOptions = {
   app.get('/animals/:id', cors(corsOptions), function (req, res, next) {
     res.json({msg: 'This is CORS-enabled for a whitelisted domain.'})
   })
-  
+   */
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/Animaldb'); 

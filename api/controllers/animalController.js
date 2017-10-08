@@ -24,7 +24,7 @@ exports.read_a_animal = function(req, res) {
   Animal.findById(req.params.animalId, function(err, animal) {
     if (err)
       res.send(err);
-    res.json(animal);
+    res.status(200).json(animal);
   });
 };
 
