@@ -1,7 +1,7 @@
-var express = require('express'),
+var express = require('express');
 var cors = require('cors'),
 app = express(),
-port = process.env.PORT || 8090,
+port = process.env.PORT || 8095,
 mongoose = require('mongoose'),
 Animal = require('./api/models/animalModel'), //created model loading here
 bodyParser = require('body-parser');
