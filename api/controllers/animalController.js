@@ -37,10 +37,9 @@ exports.update_a_animal = function(req, res) {
 };
 
 exports.delete_a_animal = function(req, res) {
-
-  Animal.remove({
+  Task.remove({
     _id: req.params.animalId
-  }, function(err, animal) {
+  }, function(err, task) {
     if (err)
       res.send(err);
     res.json({ message: 'Animal successfully deleted' });

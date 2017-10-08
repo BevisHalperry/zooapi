@@ -18,7 +18,8 @@ var AnimalSchema = new Schema({
     links: [{
         key: String,
         value: String
-    }]
+    }],
+    donate: String
 });
 
 module.exports = mongoose.model('Animals', AnimalSchema)

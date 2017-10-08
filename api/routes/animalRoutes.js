@@ -8,7 +8,7 @@ module.exports = function(app) {
     .post(animalList.create_a_animal);
 
 
-  app.route('/animals/:animalsId')
+  app.route('/animals/:animalId')
     .get(animalList.read_a_animal)
     .put(animalList.update_a_animal)
     .delete(animalList.delete_a_animal);

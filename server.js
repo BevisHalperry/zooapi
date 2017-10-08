@@ -1,9 +1,32 @@
 var express = require('express'),
+var cors = require('cors'),
 app = express(),
-port = process.env.PORT || 3000,
+port = process.env.PORT || 8090,
 mongoose = require('mongoose'),
 Animal = require('./api/models/animalModel'), //created model loading here
 bodyParser = require('body-parser');
+
+var whitelist = ['http://zoobeacon.dev', 'http://zoobcn.co']
+
+app.options('*', cors()) // include before other routes
+
+var corsOptions = {
+    origin: function (origin, callback) {
+      if (whitelist.indexOf(origin) !== -1) {
+        callback(null, true)
+      } else {
+        callback(new Error('Not allowed by CORS'))
+      }
+    }
+  }
+  
+  app.get('/products/:id', cors(corsOptions), function (req, res, next) {
+    res.json({msg: 'This is CORS-enabled for a whitelisted domain.'})
+  })
+  
+  app.listen(80, function () {
+    console.log('CORS-enabled web server listening on port 80')
+  })
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
