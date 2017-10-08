@@ -1,7 +1,7 @@
 var express = require('express');
 var cors = require('cors'),
 app = express(),
-port = process.env.PORT || 8095,
+port = process.env.PORT || 4000,
 mongoose = require('mongoose'),
 Animal = require('./api/models/animalModel'), //created model loading here
 bodyParser = require('body-parser');
@@ -24,10 +24,6 @@ var corsOptions = {
     res.json({msg: 'This is CORS-enabled for a whitelisted domain.'})
   })
   
-  app.listen(80, function () {
-    console.log('CORS-enabled web server listening on port 80')
-  })
-
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/Animaldb'); 
